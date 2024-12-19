@@ -1,4 +1,4 @@
-name: XAML Syntax Check
+name: XAML and C# Syntax Check
 
 on:
   push:
@@ -12,14 +12,25 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install XAML Styler
-      run: dotnet tool install -g XamlStyler.Console
+      # Шаг для установки инструмента для проверки и форматирования XAML
+      - name: Install XAML Styler
+        run: dotnet tool install -g XamlStyler.Console
 
-    - name: Format XAML files
-      run: xstyler -d ./ULLLL/LoginWindow.xaml/
+      # Шаг для форматирования XAML файлов
+      - name: Format XAML files
+        run: xstyler -d ./ULLLL/
 
-    - name: Check for changes after formatting
-      run: git diff --exit-code
+      # Шаг для установки инструмента для форматирования C# кода
+      - name: Install .NET Format
+        run: dotnet tool install -g dotnet-format
+
+      # Шаг для проверки и форматирования C# файлов
+      - name: Check and format C# files
+        run: dotnet format --check
+
+      # Шаг для проверки изменений после форматирования
+      - name: Check for changes after formatting
+        run: git diff --exit-code
