@@ -6,14 +6,12 @@
         xmlns:local="clr-namespace:ULLLL"
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
-
     <Grid>
         <!-- TabControl с боковыми вкладками -->
         <TabControl TabStripPlacement="Left">
             <TabControl.Background>
                 <ImageBrush ImageSource="/фон 1 — копия (5).jpg"/>
             </TabControl.Background>
-
             <!-- Вкладка: Посмотреть каталог -->
             <TabItem Background="#FFCB3153">
                 <TabItem.Header>
@@ -22,10 +20,8 @@
                         <TextBlock Text="Каталог"/>
                     </StackPanel>
                 </TabItem.Header>
-
                 <StackPanel Margin="10">
                     <TextBlock Text="Каталог товаров" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
-
                     <!-- DataGrid для отображения списка товаров -->
                     <DataGrid x:Name="ProductsDataGrid" AutoGenerateColumns="False" SelectionMode="Single" 
               SelectionChanged="ProductsDataGrid_SelectionChanged" Height="200">
@@ -36,15 +32,11 @@
                             <DataGridTextColumn Header="Количество на складе" Binding="{Binding StockQuantity}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-
                     <!-- TextBlock для отображения информации о выбранном товаре -->
                     <TextBlock x:Name="SelectedProductInfoTextBlock" Text="Выберите товар, чтобы увидеть детали." Margin="0,10,0,0"/>
                     <Button Content="Добавить в заказ" Click="AddToOrderButton_Click" Margin="0,10,0,0" Background="#FF7F293D" Foreground="#FFFDFDFD" FontWeight="Bold"/>
-
                 </StackPanel>
-
             </TabItem>
-
             <!-- Вкладка: Посмотреть заказ -->
             <TabItem Background="#FFCB3153">
                 <TabItem.Header>
@@ -53,10 +45,8 @@
                         <TextBlock ><Run Text="Оформить "/><LineBreak/><Run Text="заказ"/></TextBlock>
                     </StackPanel>
                 </TabItem.Header>
-
                 <StackPanel Margin="10">
                     <TextBlock Text="Ваш заказ" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
-
                     <!-- DataGrid для отображения добавленных товаров -->
                     <DataGrid x:Name="OrderItemsDataGrid" AutoGenerateColumns="False" Height="200">
                         <DataGrid.Columns>
@@ -65,13 +55,11 @@
                             <DataGridTextColumn Header="Количество" Binding="{Binding Quantity}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
-
                     <Button Content="Очистить корзину" Click="ClearCartButton_Click" Margin="5" Background="#FF7F293D" Foreground="#FFFDFDFD" FontWeight="Bold"/>
                     <Button Content="Удалить выбранный товар" Click="RemoveSelectedItemButton_Click" Margin="5" Background="#FF7F293D" Foreground="#FFFDFDFD" FontWeight="Bold"/>
                     <Button Content="Оформить заказ" Margin="0,10,0,0" Width="150" Click="PlaceOrderButton_Click" Background="#FF7F293D" Foreground="#FFFDFDFD" FontWeight="Bold"/>
                 </StackPanel>
             </TabItem>
-
             <!-- Вкладка с заказами клиента -->
             <TabItem Background="#FFCB3153">
                 <TabItem.Header>
@@ -95,7 +83,6 @@
                             <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="150"/>
                         </DataGrid.Columns>
                     </DataGrid>
-
                     <TextBlock Text="Состав заказа" FontSize="16" FontWeight="Bold" Margin="0,10,0,10"/>
                     <DataGrid x:Name="OrderDetailsDataGrid" AutoGenerateColumns="False" HeadersVisibility="Column" Margin="0,10,0,0">
                         <DataGrid.Columns>
@@ -107,11 +94,7 @@
                     <TextBlock Text="График заказов" FontSize="16" FontWeight="Bold" Margin="10,10,0,10"/>
                     <Canvas x:Name="OrdersCanvas" Width="500" Height="300" Background="LightGray" />
                 </StackPanel>
-
             </TabItem>
-
-
-
             <TabItem Background="#FFCB3153">
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -127,14 +110,8 @@
                     <TextBlock x:Name="ClientFirstNameTextBlock" Text="" FontSize="14" Margin="0,0,0,5"/>
                     <TextBlock x:Name="ClientLastNameTextBlock" Text="" FontSize="14" Margin="0,0,0,5"/>
                     <TextBlock x:Name="ClientPhoneTextBlock" Text="" FontSize="14" Margin="0,0,0,5"/>
-
-                    
-
                     <Button Content="Выйти из аккаунта" Margin="0,10,0,0" Background="#FF7F293D" Foreground="#FFFDFDFD" FontWeight="Bold" Click="Button_Click"/>
                 </StackPanel>
-
-
-
             </TabItem>
         </TabControl>
     </Grid>
