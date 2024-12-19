@@ -12,7 +12,9 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    
+    - name: Checkout code
+      uses: actions/checkout@v3
+
     - name: Format XAML files
       run: xstyler -d ./ULLLL/
 
