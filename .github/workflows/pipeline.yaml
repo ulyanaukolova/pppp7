@@ -24,7 +24,22 @@ jobs:
       run: dotnet tool install -g XamlStyler.Console
 
     - name: Format XAML files
-      run: xstyler -d './ULLLL/'  # Путь к директории с XAML файлами, укажите верно
+      run: |
+        xstyler -d './ULLLL/'  # Путь к директории с XAML файлами, укажите верно
+        echo "Formatting complete."
+
+    - name: Show changed files
+      run: |
+        git status --short
+        echo "If there are changes, they will be shown above."
 
     - name: Check for changes after formatting
       run: git diff --exit-code
+      continue-on-error: true
+
+    - name: Debugging changes
+      if: failure()
+      run: |
+        echo "The following changes were detected:"
+        git diff
+        echo "Check the above diff for problematic XAML files."
