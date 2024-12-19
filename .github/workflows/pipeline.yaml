@@ -1,0 +1,31 @@
+name: jjjj
+
+on:
+  push:
+    branches:
+      - vetk7
+  pull_request:
+    branches:
+      - vetk7
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Download code
+      uses: actions/checkout@v2
+
+    - name: Set version
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Install dependencies
+      run: nuget restore ULLLL.sln
+
+    - name: Bi
+      run: |
+        msbuild ULLLL.sln /p:Configuration=Release
+
+    - name: Run linter
+      run: |
+        msbuild ULLLL.sln /p:Configuration=Release /p:RunCodeAnalysis=true
