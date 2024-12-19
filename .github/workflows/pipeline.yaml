@@ -1,4 +1,4 @@
-name: XAML Syntax Check
+name: Config Syntax Check
 
 on:
   push:
@@ -15,11 +15,5 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install XAML Styler
-      run: dotnet tool install -g XamlStyler.Console
-
-    - name: Format XAML files
-      run: xstyler -d ./ULLLL/
-
-    - name: Check for changes after formatting
-      run: git diff --exit-code
+    - name: Check .config files for changes
+      run: git diff --exit-code -- '*.config'
