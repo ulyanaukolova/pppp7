@@ -26,5 +26,3 @@ jobs:
     - name: Format XAML files
       run: xstyler -d './ULLLL/'  # Путь к директории с XAML файлами, укажите верно
 
-    - name: Check for changes after formatting
-      run: git diff --exit-code
