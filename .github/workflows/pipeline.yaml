@@ -12,16 +12,9 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    
+    - name: Format XAML files
+      run: xstyler -d ./ULLLL/
 
-      - name: Install XAML Styler
-        run: dotnet tool install -g XamlStyler.Console
-
-      - name: Format XAML files (check spaces)
-        run: |
-          # Проверка и форматирование XAML-файлов в директории с учетом пробелов
-          find ./ULLLL/ -iname "*.xaml" -exec xstyler -d {} \;
-
-      - name: Check for changes after formatting
-        run: git diff --exit-code
+    - name: Check for changes after formatting
+      run: git diff --exit-code
