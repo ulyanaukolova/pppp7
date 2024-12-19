@@ -32,14 +32,3 @@ jobs:
       run: |
         git status --short
         echo "If there are changes, they will be shown above."
-
-    - name: Check for changes after formatting
-      run: git diff --exit-code
-      continue-on-error: true
-
-    - name: Debugging changes
-      if: failure()
-      run: |
-        echo "The following changes were detected:"
-        git diff
-        echo "Check the above diff for problematic XAML files."
