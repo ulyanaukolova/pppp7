@@ -28,7 +28,7 @@ jobs:
       run: dotnet tool install -g XamlStyler.Console
 
     - name: Format XAML files
-      run: xstyler -d ./ULLLL/App.xaml/
+      run: xstyler -d ./ULLLL/
 
     - name: Check for changes after formatting
       run: git diff --exit-code
