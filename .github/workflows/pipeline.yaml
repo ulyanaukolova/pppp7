@@ -15,14 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Шаг для установки инструмента для проверки и форматирования XAML
-      - name: Install XAML Styler
-        run: dotnet tool install -g XamlStyler.Console
-
-      # Шаг для форматирования XAML файлов
-      - name: Format XAML files
-        run: xstyler -d ./ULLLL/
-
       # Шаг для установки инструмента для форматирования C# кода
       - name: Install .NET Format
         run: dotnet tool install -g dotnet-format
